@@ -7,20 +7,25 @@ class Task:
     def mark_completed(self):
         self.completed = True
 
-    def __str__(self):
-        status = "Выполнено" if self.completed else "Не выполнено"
-        return f"Задача: {self.description}, Срок: {self.deadline}, Статус: {status}"
+    def message_str(self):
+        if self.completed == True:
+            status = "Выполнено"
+            print(f"Задача: {self.description}, Срок: {self.deadline}, Статус: {status}")
+        else:
+            status = "Не выполнено"
+            print(f"Задача: {self.description}, Срок: {self.deadline}, Статус: {status}")
 
 # Пример использования
+
+print("\n")
 task1 = Task("Купить фитинги", "11-07-2024")
 task2 = Task("Сделать ДЗ", "11-07-2024")
 
-print("Созданные задачи:")
-print(task1)
-print(task2)
+task1.message_str()
+task2.message_str()
 
 task1.mark_completed()
 
-print("\nЗадачи после выполнения первой задачи:")
-print(task1)
-print(task2)
+print("\n")
+task1.message_str()
+task2.message_str()
